@@ -2,26 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F6F5F1;
+    --foreground: #16213E;
+
+    --card: #F6F5F1;
+    --card-foreground: #16213E;
+
+    --popover: #F6F5F1;
+    --popover-foreground: #16213E;
+
+    --primary: #C08A28;
+    --primary-foreground: #F6F5F1;
+
+    --secondary: #5C7290;
+    --secondary-foreground: #F6F5F1;
+
+    --muted: #5C7290;
+    --muted-foreground: rgba(22, 33, 62, 0.7);
+
+    --accent: #C08A28;
+    --accent-foreground: #16213E;
+
+    --destructive: #9E3B3B;
+    --destructive-foreground: #F6F5F1;
+
+    --border: rgba(22, 33, 62, 0.2);
+    --input: rgba(22, 33, 62, 0.2);
+    --ring: #C08A28;
+
+    --radius: 0.25rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Certificate Tear-off stub divider style */
+.tear-off-stub {
+  border-top: 1.5px dashed rgba(22, 33, 62, 0.2);
+}
+
+/* Staircase progression styles */
+.staircase-step {
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+}
+
+/* ─── Landing Page Animations ─── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-12px) scale(1.2); opacity: 0.6; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes staircase-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-particle {
+  animation: float-particle 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverse-spin 15s linear infinite;
+}
+
+.animate-modal-in {
+  animation: modal-in 0.2s ease-out;
+}
+
+.animate-staircase-float {
+  animation: staircase-float 3s ease-in-out infinite;
 }
