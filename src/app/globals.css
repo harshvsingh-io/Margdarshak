@@ -28,11 +28,24 @@
     --destructive: #9E3B3B;
     --destructive-foreground: #F6F5F1;
 
-    --border: rgba(22, 33, 62, 0.2);
-    --input: rgba(22, 33, 62, 0.2);
+    --border: rgba(22, 33, 62, 0.12);
+    --input: rgba(22, 33, 62, 0.12);
     --ring: #C08A28;
 
     --radius: 0.25rem;
+
+    /* ─── Design Tokens ─── */
+    --shadow-sm: 0 1px 2px rgba(22,33,62,0.04);
+    --shadow-md: 0 2px 8px rgba(22,33,62,0.06), 0 1px 2px rgba(22,33,62,0.04);
+    --shadow-lg: 0 4px 16px rgba(22,33,62,0.08), 0 2px 4px rgba(22,33,62,0.04);
+    --shadow-xl: 0 8px 32px rgba(22,33,62,0.10), 0 4px 8px rgba(22,33,62,0.06);
+    --shadow-card: 0 1px 3px rgba(22,33,62,0.04), 0 0 0 1px rgba(22,33,62,0.06);
+    --shadow-card-hover: 0 4px 12px rgba(22,33,62,0.08), 0 0 0 1px rgba(22,33,62,0.10);
+    --shadow-elevated: 0 8px 24px rgba(22,33,62,0.12), 0 2px 6px rgba(22,33,62,0.06);
+
+    --depth-1: 0 1px 0 rgba(22,33,62,0.04), 0 1px 3px rgba(22,33,62,0.06);
+    --depth-2: 0 2px 0 rgba(22,33,62,0.04), 0 4px 8px rgba(22,33,62,0.06);
+    --depth-3: 0 4px 0 rgba(22,33,62,0.03), 0 8px 16px rgba(22,33,62,0.08);
   }
 }
 
@@ -43,28 +56,102 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  ::selection {
+    @apply bg-seal-gold/20 text-ink;
+  }
 }
 
-/* Certificate Tear-off stub divider style */
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(22,33,62,0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(22,33,62,0.25);
+}
+
+/* ─── Focus Ring System ─── */
+*:focus-visible {
+  @apply outline-none ring-2 ring-seal-gold/40 ring-offset-2 ring-offset-paper;
+}
+
+/* ─── Certificate Tear-off Stub ─── */
 .tear-off-stub {
-  border-top: 1.5px dashed rgba(22, 33, 62, 0.2);
+  border-top: 1.5px dashed rgba(22, 33, 62, 0.15);
 }
 
-/* Staircase progression styles */
+/* ─── Staircase Step ─── */
 .staircase-step {
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
 }
 
-/* ─── Landing Page Animations ─── */
+/* ─── Card Depth Layers ─── */
+.card-depth {
+  box-shadow: var(--depth-1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-depth:hover {
+  box-shadow: var(--depth-2);
+  transform: translateY(-1px);
+}
+.card-depth-elevated {
+  box-shadow: var(--depth-2);
+}
+.card-depth-elevated:hover {
+  box-shadow: var(--depth-3);
+  transform: translateY(-2px);
+}
 
+/* ─── Premium Border Treatment ─── */
+.border-refined {
+  border: 1px solid rgba(22,33,62,0.08);
+  transition: border-color 0.2s ease;
+}
+.border-refined:hover {
+  border-color: rgba(22,33,62,0.15);
+}
+
+/* ─── Skeleton Loading ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(22,33,62,0.04) 25%, rgba(22,33,62,0.08) 50%, rgba(22,33,62,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 2px;
+}
+.skeleton-text {
+  height: 0.75rem;
+  border-radius: 2px;
+}
+.skeleton-heading {
+  height: 1.5rem;
+  width: 60%;
+  border-radius: 2px;
+}
+.skeleton-card {
+  height: 8rem;
+  border-radius: 4px;
+}
+
+/* ─── Micro-Interaction Animations ─── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes float-particle {
   0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-12px) scale(1.2); opacity: 0.6; }
+  50% { transform: translateY(-10px) scale(1.2); opacity: 0.6; }
 }
 
 @keyframes spin-slow {
@@ -78,35 +165,104 @@
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @keyframes staircase-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--progress, 100%); }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
 .animate-float-particle {
   animation: float-particle 4s ease-in-out infinite;
 }
-
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
 }
-
 .animate-reverse-spin {
   animation: reverse-spin 15s linear infinite;
 }
-
 .animate-modal-in {
   animation: modal-in 0.2s ease-out;
 }
-
 .animate-staircase-float {
   animation: staircase-float 3s ease-in-out infinite;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out both;
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out both;
+}
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out both;
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Staggered entrance delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ─── Button Pressed State ─── */
+.btn-pressed:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Responsive Type Scale ─── */
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
 }
