@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import ProgressiveProfile from "./ProgressiveProfile";
+import ProgressiveProfile from "@/components/ProgressiveProfile";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, PlusCircle, CheckCircle, Bell, ArrowRight, Loader2, Edit, LogOut } from "lucide-react";
 import { signOut } from "@/app/actions/auth";
