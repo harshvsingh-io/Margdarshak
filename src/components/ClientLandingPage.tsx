@@ -79,7 +79,7 @@ function StaircaseVisual({ mousePos }: { mousePos: { x: number; y: number } }) {
         className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full opacity-20"
         style={{
           background:
-            "radial-gradient(circle, rgba(192,138,40,0.3) 0%, rgba(47,111,94,0.1) 50%, transparent 70%)",
+            "radial-gradient(circle, rgba(243,181,98,0.3) 0%, rgba(15,118,110,0.1) 50%, transparent 70%)",
           transform: `translate(${mousePos.x * 8}px, ${mousePos.y * 8}px)`,
           transition: "transform 0.3s ease-out",
         }}

@@ -46,8 +46,11 @@ const config: Config = {
           foreground: "var(--muted-foreground)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
           foreground: "var(--accent-foreground)",
+        },
+        "burnt-orange": {
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
         },
         card: {
           DEFAULT: "var(--card)",

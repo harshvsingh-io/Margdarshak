@@ -4,57 +4,57 @@
 
 @layer base {
   :root {
-    /* ─── Premium Dark Color Grading ─── */
-    --background: #0B0F19; /* Deep space navy-slate */
-    --foreground: #F5F5F7; /* High-contrast clean off-white */
+    /* ─── Premium Warm Sand & Deep Teal Color Identity ─── */
+    --background: #F4F0E8; /* Warm Sand / Premium Paper */
+    --foreground: #182322; /* Deep Charcoal Teal */
 
-    --paper: 18, 24, 38; /* #121826 in RGB */
-    --ink: 245, 245, 247; /* #F5F5F7 in RGB */
+    --paper: 244, 240, 232; /* Warm Sand in RGB */
+    --ink: 23, 42, 42; /* Dark Forest Teal (#172A2A) in RGB */
     
-    --card: #121826; 
-    --card-foreground: #F5F5F7;
+    --card: #FAF6EE; /* Slightly lighter raised warm cream card */
+    --card-foreground: #182322;
+ 
+    --popover: #FAF6EE;
+    --popover-foreground: #182322;
 
-    --popover: #121826;
-    --popover-foreground: #F5F5F7;
+    --seal-gold: 243, 181, 98; /* Warm Amber (#F3B562) in RGB */
+    --growth-teal: 15, 118, 110; /* Emerald Teal (#0F766E) in RGB */
+    --horizon-slate: 104, 117, 115; /* Muted Teal-Gray (#687573) in RGB */
+    --stamp-red: 217, 75, 75; /* Urgent Crimson Red (#D94B4B) in RGB */
 
-    --seal-gold: 226, 176, 83; /* #E2B053 in RGB */
-    --growth-teal: 16, 185, 129; /* #10B981 in RGB */
-    --horizon-slate: 138, 155, 180; /* #8A9BB4 in RGB */
-    --stamp-red: 244, 63, 94; /* #F43F5E in RGB */
+    --primary: #0F766E; /* Emerald Teal */
+    --primary-foreground: #F4F0E8;
 
-    --primary: #E2B053;
-    --primary-foreground: #0B0F19;
+    --secondary: #172A2A; /* Dark Forest Teal */
+    --secondary-foreground: #F4F0E8;
 
-    --secondary: #1E293B;
-    --secondary-foreground: #F5F5F7;
+    --muted: #EFEAE0;
+    --muted-foreground: #687573;
 
-    --muted: #1E293B;
-    --muted-foreground: rgba(245, 245, 247, 0.6);
+    --accent: 232, 106, 51; /* Burnt Orange (#E86A33) in RGB */
+    --accent-foreground: #F4F0E8;
 
-    --accent: #E2B053;
-    --accent-foreground: #0B0F19;
+    --destructive: #D94B4B;
+    --destructive-foreground: #F4F0E8;
 
-    --destructive: #F43F5E;
-    --destructive-foreground: #F5F5F7;
+    --border: rgba(23, 42, 42, 0.12); /* Thin technical Forest Teal borders */
+    --input: rgba(23, 42, 42, 0.08);
+    --ring: #0F766E;
 
-    --border: rgba(245, 245, 247, 0.08); /* Sophisticated thin borders */
-    --input: rgba(245, 245, 247, 0.06);
-    --ring: #E2B053;
-
-    /* ─── Softer shadow mapping for dark interfaces with light overlays ─── */
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
-    --shadow-md: 0 2px 8px rgba(0,0,0,0.6);
-    --shadow-lg: 0 4px 16px rgba(0,0,0,0.7);
-    --shadow-xl: 0 8px 32px rgba(0,0,0,0.8);
+    /* ─── Soft organic shadows for light warm sand backgrounds ─── */
+    --shadow-sm: 0 1px 2px rgba(24,35,34,0.02);
+    --shadow-md: 0 2px 8px rgba(24,35,34,0.04);
+    --shadow-lg: 0 4px 16px rgba(24,35,34,0.06);
+    --shadow-xl: 0 8px 32px rgba(24,35,34,0.08);
     
-    /* 1px clean light-reflection highlight borders for premium dark look */
-    --shadow-card: 0 2px 4px rgba(0,0,0,0.4), 0 0 0 1px rgba(245, 245, 247, 0.05);
-    --shadow-card-hover: 0 6px 16px rgba(0,0,0,0.6), 0 0 0 1.5px rgba(226, 176, 83, 0.3); /* Gold outline on hover! */
-    --shadow-elevated: 0 12px 36px rgba(0,0,0,0.7), 0 0 0 1px rgba(245, 245, 247, 0.1);
+    /* Subtle border outline with Burnt Orange outline highlight on hover */
+    --shadow-card: 0 1px 3px rgba(24,35,34,0.04), 0 0 0 1px rgba(23,42,42,0.06);
+    --shadow-card-hover: 0 6px 16px rgba(24,35,34,0.08), 0 0 0 1.5px rgba(232, 106, 51, 0.25); /* Burnt Orange highlight! */
+    --shadow-elevated: 0 8px 24px rgba(24,35,34,0.1), 0 0 0 1px rgba(23,42,42,0.08);
 
-    --shadow-depth-1: 0 1px 0 rgba(245,245,247,0.05), 0 1px 3px rgba(0,0,0,0.5);
-    --shadow-depth-2: 0 2px 0 rgba(245,245,247,0.08), 0 4px 8px rgba(0,0,0,0.6);
-    --shadow-depth-3: 0 4px 0 rgba(245,245,247,0.1), 0 8px 16px rgba(0,0,0,0.7);
+    --shadow-depth-1: 0 1px 0 rgba(23,42,42,0.04), 0 1px 3px rgba(24,35,34,0.04);
+    --shadow-depth-2: 0 2px 0 rgba(23,42,42,0.06), 0 4px 8px rgba(24,35,34,0.06);
+    --shadow-depth-3: 0 4px 0 rgba(23,42,42,0.08), 0 8px 16px rgba(24,35,34,0.08);
   }
 }
 
@@ -79,11 +79,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(22,33,62,0.15);
+  background: rgba(23,42,42,0.15);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(22,33,62,0.25);
+  background: rgba(23,42,42,0.25);
 }
 
 /* ─── Focus Ring System ─── */
@@ -93,7 +93,7 @@
 
 /* ─── Certificate Tear-off Stub ─── */
 .tear-off-stub {
-  border-top: 1.5px dashed rgba(22, 33, 62, 0.15);
+  border-top: 1.5px dashed rgba(23, 42, 42, 0.15);
 }
 
 /* ─── Staircase Step ─── */
@@ -120,11 +120,11 @@
 
 /* ─── Premium Border Treatment ─── */
 .border-refined {
-  border: 1px solid rgba(22,33,62,0.08);
+  border: 1px solid rgba(23,42,42,0.08);
   transition: border-color 0.2s ease;
 }
 .border-refined:hover {
-  border-color: rgba(22,33,62,0.15);
+  border-color: rgba(23,42,42,0.15);
 }
 
 /* ─── Skeleton Loading ─── */
@@ -133,7 +133,7 @@
   100% { background-position: 200% 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg, rgba(22,33,62,0.04) 25%, rgba(22,33,62,0.08) 50%, rgba(22,33,62,0.04) 75%);
+  background: linear-gradient(90deg, rgba(23,42,42,0.04) 25%, rgba(23,42,42,0.08) 50%, rgba(23,42,42,0.04) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
   border-radius: 2px;
