@@ -227,7 +227,7 @@ export default async function DashboardPage() {
         />
 
         {/* ─── Quick Actions ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up delay-2">
           <Link href="/opportunities" className="group block bg-paper border border-ink/8 rounded-lg p-6 relative overflow-hidden transition-all duration-200 hover:border-ink/15 hover:shadow-card-hover hover:-translate-y-0.5">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-growth-teal/40 to-growth-teal/0" />
             <div className="space-y-3">
@@ -274,7 +274,7 @@ export default async function DashboardPage() {
         </div>
 
         {/* ─── Bottom nav links ─── */}
-        <div className="flex items-center justify-center gap-6 pt-4 pb-4">
+        <div className="flex items-center justify-center gap-6 pt-4 pb-4 animate-fade-in-up delay-3">
           {[
             { href: "/opportunities", label: "Opportunities" },
             { href: "/tracker", label: "Tracker" },

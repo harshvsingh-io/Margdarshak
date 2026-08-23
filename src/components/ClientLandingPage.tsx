@@ -125,15 +125,19 @@ function StaircaseVisual({ mousePos }: { mousePos: { x: number; y: number } }) {
         ].map((step, i) => (
           <div
             key={step.label}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 relative group/step"
             style={{
               transform: `translateY(${mousePos.y * step.depth * -0.5}px) translateX(${mousePos.x * step.depth * 0.3}px)`,
               transition: "transform 0.3s ease-out",
             }}
           >
+            <span className="font-mono text-[7px] text-ink/30 tracking-widest uppercase mb-1 block select-none">
+              [ N_0{i + 1} {" // "} {step.label.substring(0, 3)} ]
+            </span>
+
             {/* Floating card above step */}
             <div
-              className={`w-16 h-10 md:w-20 md:h-12 ${step.color}/10 border ${step.color}/30 rounded-md flex items-center justify-center backdrop-blur-sm`}
+              className={`w-16 h-10 md:w-20 md:h-12 ${step.color}/10 border ${step.color}/30 rounded-md flex items-center justify-center backdrop-blur-sm transition-all duration-300 group-hover/step:border-${step.color}`}
               style={{
                 animation: `float ${3 + i * 0.5}s ease-in-out infinite`,
                 animationDelay: `${i * 0.3}s`,
@@ -148,7 +152,7 @@ function StaircaseVisual({ mousePos }: { mousePos: { x: number; y: number } }) {
 
             {/* Step block */}
             <div
-              className={`w-16 md:w-20 ${step.h} ${step.color}/80 rounded-sm border ${step.color} relative overflow-hidden`}
+              className={`w-16 md:w-20 ${step.h} ${step.color}/80 rounded-sm border ${step.color} relative overflow-hidden transition-all duration-300 group-hover/step:-translate-y-1`}
               style={{
                 boxShadow: `0 8px 32px ${step.color}20, 0 2px 8px ${step.color}10`,
               }}
@@ -710,7 +714,12 @@ export default function ClientLandingPage() {
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-0 w-full">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left: Copy */}
-            <div className="space-y-6 md:space-y-8 z-10">
+            <div className="space-y-6 md:space-y-8 z-10 border-l border-ink/10 pl-6 md:pl-8 relative animate-fade-in-up">
+              {/* Section coordinate counter */}
+              <div className="absolute -left-[1.5px] top-0 h-10 w-[3px] bg-growth-teal" />
+              <span className="font-mono text-[9px] text-growth-teal font-bold uppercase tracking-[0.25em] block">
+                [ SYS_NAV // NODE_0.00.1 ]
+              </span>
               <div className="space-y-4">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-[1.05]">
                   Your next
@@ -728,18 +737,18 @@ export default function ClientLandingPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button
                   onClick={() => openAuth("signup")}
-                  className="bg-growth-teal hover:bg-growth-teal/90 text-white rounded-md h-11 px-6 font-sans font-semibold text-sm flex items-center gap-2 group transition-all"
+                  className="bg-growth-teal hover:bg-growth-teal/90 text-white rounded-md h-11 px-6 font-sans font-semibold text-sm flex items-center gap-2 group transition-all btn-pressed hover:-translate-y-[1px] active:scale-[0.98]"
                 >
                   Find My Opportunities
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </Button>
                 <a href="#how-it-works">
                   <Button
                     variant="outline"
-                    className="w-full sm:w-auto border-ink/20 hover:bg-ink/5 rounded-md h-11 px-6 font-sans font-semibold text-sm text-ink flex items-center gap-2 transition-all"
+                    className="w-full sm:w-auto border-ink/20 hover:bg-ink/5 rounded-md h-11 px-6 font-sans font-semibold text-sm text-ink flex items-center gap-2 transition-all btn-pressed hover:-translate-y-[1px] active:scale-[0.98]"
                   >
                     Explore How It Works
                     <Compass className="w-4 h-4" />

@@ -184,8 +184,8 @@
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 @keyframes fade-in {
@@ -199,8 +199,8 @@
 }
 
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.96); filter: blur(2px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
 @keyframes pulse-subtle {
@@ -232,7 +232,7 @@
   animation: staircase-float 3s ease-in-out infinite;
 }
 .animate-fade-in-up {
-  animation: fade-in-up 0.4s ease-out both;
+  animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .animate-fade-in {
   animation: fade-in 0.3s ease-out both;
@@ -241,7 +241,7 @@
   animation: slide-in-right 0.3s ease-out both;
 }
 .animate-scale-in {
-  animation: scale-in 0.2s ease-out both;
+  animation: scale-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 .animate-pulse-subtle {
   animation: pulse-subtle 2s ease-in-out infinite;
@@ -253,6 +253,26 @@
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
+.delay-1 { animation-delay: 80ms !important; }
+.delay-2 { animation-delay: 160ms !important; }
+.delay-3 { animation-delay: 240ms !important; }
+.delay-4 { animation-delay: 320ms !important; }
+.delay-5 { animation-delay: 400ms !important; }
+
+/* ─── Ambient Atmospheric Lightings ─── */
+.glow-violet {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 60%);
+}
+.glow-teal {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+}
+.glow-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 65%);
+}
+.glow-gold {
+  background: radial-gradient(circle, rgba(226, 176, 83, 0.08) 0%, transparent 55%);
+}
 
 /* ─── Button Pressed State ─── */
 .btn-pressed:active {

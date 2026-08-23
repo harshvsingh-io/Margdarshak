@@ -197,7 +197,7 @@ export default function ClientDashboardWrapper({
 
       {/* 3. Profile Completion */}
       {missingFields.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-3 animate-fade-in-up delay-2">
           <div className="p-3 bg-seal-gold/[0.03] border border-seal-gold/15 rounded-lg flex items-start gap-2.5">
             <PlusCircle className="w-4 h-4 text-seal-gold mt-0.5 flex-shrink-0" />
             <div className="space-y-0.5">
@@ -217,7 +217,7 @@ export default function ClientDashboardWrapper({
           />
         </div>
       ) : (
-        <div className="p-3 bg-growth-teal/[0.03] border border-growth-teal/15 rounded-lg flex items-center gap-2.5">
+        <div className="p-3 bg-growth-teal/[0.03] border border-growth-teal/15 rounded-lg flex items-center gap-2.5 animate-fade-in-up delay-2">
           <CheckCircle className="w-4 h-4 text-growth-teal flex-shrink-0" />
           <span className="text-xs font-sans text-growth-teal font-medium">
             Student registry profile is 100% complete. All criteria matches unlocked.
@@ -226,14 +226,14 @@ export default function ClientDashboardWrapper({
       )}
 
       {/* 4. Settings Bar */}
-      <div className="flex justify-between items-center pt-3 border-t border-ink/6">
+      <div className="flex justify-between items-center pt-3 border-t border-ink/6 animate-fade-in-up delay-3">
         <span className="text-[10px] font-mono text-horizon-slate/50">
           Registry ID: <span className="text-horizon-slate/70">{profile.id ? profile.id.substring(0, 8) : "Guest"}...</span>
         </span>
         <div className="flex items-center gap-2">
           <Dialog open={editOpen} onOpenChange={setEditOpen}>
             <DialogTrigger>
-              <span className="text-[10px] text-growth-teal hover:text-growth-teal/80 font-semibold flex items-center gap-1 cursor-pointer transition-colors">
+              <span className="text-[10px] text-growth-teal hover:text-growth-teal/80 font-semibold flex items-center gap-1 cursor-pointer transition-colors hover:-translate-y-[0.5px] active:scale-[0.98]">
                 <Edit className="w-3 h-3" /> Edit Profile
               </span>
             </DialogTrigger>
@@ -336,10 +336,10 @@ export default function ClientDashboardWrapper({
                     </Label>
                   </div>
                   <div className="flex justify-end gap-2 pt-3 border-t border-ink/5">
-                    <Button type="button" variant="outline" onClick={() => setEditOpen(false)} className="border-ink/10 hover:bg-ink/[0.03] rounded-md text-xs h-8 px-3">
+                    <Button type="button" variant="outline" onClick={() => setEditOpen(false)} className="border-ink/10 hover:bg-ink/[0.03] rounded-md text-xs h-8 px-3 transition-all hover:-translate-y-[1px] active:scale-[0.98]">
                       Cancel
                     </Button>
-                    <Button type="submit" disabled={saving} className="bg-seal-gold hover:bg-seal-gold/90 text-white rounded-md text-xs font-semibold h-8 px-3 flex items-center">
+                    <Button type="submit" disabled={saving} className="bg-seal-gold hover:bg-seal-gold/90 text-white rounded-md text-xs font-semibold h-8 px-3 flex items-center transition-all hover:-translate-y-[1px] active:scale-[0.98]">
                       {saving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : null}
                       Save Profile
                     </Button>
@@ -354,7 +354,7 @@ export default function ClientDashboardWrapper({
           <button
             onClick={handleSignOut}
             disabled={signingOut}
-            className="text-[10px] text-stamp-red/70 hover:text-stamp-red font-semibold flex items-center gap-1 transition-colors"
+            className="text-[10px] text-stamp-red/70 hover:text-stamp-red font-semibold flex items-center gap-1 transition-colors transition-all active:scale-[0.98]"
           >
             <LogOut className="w-3 h-3" />
             {signingOut ? "Signing Out..." : "Sign Out"}
